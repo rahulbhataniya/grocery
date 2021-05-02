@@ -1,9 +1,13 @@
 <?php
+
 session_start();
+
 if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !==true)
 {
     header("location: login.php");
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -81,13 +85,13 @@ $('[data-toggle="tooltip"]').tooltip();
 <div class="col-md-12">
 <div class="page-header clearfix">
 <div class="page-header clearfix">
-<h2 class="pull-left">Orders List</h2>
-<a href="order_insert.php" class="btn btn-success pull-right mb-1 mt-1">Add New User</a>
+<h2 class="pull-left">Users List</h2>
+<a href="create.php" class="btn btn-success pull-right mb-1 mt-1">Add New User</a>
 </div>
 </div>
 <?php
 require_once "config.php";
-$result = mysqli_query($conn,"SELECT * FROM orders");
+$result = mysqli_query($conn,"SELECT * FROM user");
 ?>
 
 <?php
@@ -96,10 +100,8 @@ if (mysqli_num_rows($result) > 0) {
 <table class='table table-bordered table-striped' style="background-color:white;">
 <tr>
 <td>No .</td>
-<td>Product</td>
-<td>Unit</td>
 <td>Username</td>
-<td>Address</td>
+<td>Email id</td>
 <td>Action</td>
 </tr>
 <?php
@@ -109,10 +111,8 @@ while($row = mysqli_fetch_array($result))
 ?>
 <tr>
 <td><?php echo $row["id"]; ?></td>
-<td><?php echo $row["product_name"]; ?></td>
-<td><?php echo $row["unit"]; ?></td>
 <td><?php echo $row["username"]; ?></td>
-<td><?php echo $row["addr"]; ?></td>
+<td><?php echo $row["email"]; ?></td>
 <td><a href="edit_order.php?id=<?php echo $row['id']; ?>" class="btn btn-primary mb-1" title="Update Record">Edit</a>
 <a href="del_order.php?id=<?php echo $row['id']; ?>" class="btn btn-primary mb-1" title="Delete Record">Delete</a>
 </td>

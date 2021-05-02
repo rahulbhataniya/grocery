@@ -1,0 +1,77 @@
+body{
+    background-image: url('..\\images\\bg2.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position-y: -80px;
+    background-repeat: none;
+}
+header{
+    margin:0px;
+    background:#35424a;
+    color:#ffffff;
+    padding-top:20px;
+    min-height: 70px;
+    border-bottom: #e8491d 3px solid;
+}
+.branding h1
+{
+    font-style:oblique;
+}
+header a
+{
+
+    font-size: 20px;
+    color:#ffffff;
+    text-decoration:none;
+    text-transform: uppercase;
+}
+header a:hover
+{
+    color:lightcoral;
+}
+
+header ul
+{
+    margin:0;
+    padding:0;
+}
+header li
+{
+    display:inline;
+    padding :0 20px 0 20px;
+}
+header .branding
+{
+    float:left;
+    padding :0 20px 0 20px;
+}
+header nav{
+    float:right;
+}
+
+
+/*product form  */
+.image_list ul
+{
+   
+}
+.image_list li
+{
+    display:inline;
+    padding :0 20px 0 20px;
+}
+.image_list img
+{
+    height: 300px;
+    padding :0 20px 0 20px;
+    width:300px;
+    border: red 4px;
+    border-style: solid ;
+}
+.image_list img:hover
+{
+    background-color:greenyellow;
+}
+/*         registration form page   */
+
+  

@@ -51,33 +51,34 @@
         require_once "config.php";
         if(isset($_POST['submit']))
         {
-            $username=$_POST['username'];
-            $email=$_POST['email'];
+            $P_name=$_POST['Product_name'];
+            $P_price=$_POST['price'];
+            $P_unit=$_POST['unit'];
             if (!$conn) 
             {
                 die("Connection failed: " . mysqli_connect_error());
             }
               
-              $sql = "UPDATE user SET username='$username',email='$email' WHERE id='$id'";
+              $sql = "UPDATE products SET product_name='$P_name',price='$P_price',unit='$P_unit' WHERE pro_ID='$id'";
               
               if (mysqli_query($conn, $sql)) 
               {
                 echo "Record updated successfully";
-                header('location:orders.php');
+                header('location:products.php');
               } else {
                 echo "Error updating record: " . mysqli_error($conn);
               }
 
         }
-        $result=mysqli_query($conn,"SELECT * FROM user WHERE id='$id'");
+        $result=mysqli_query($conn,"SELECT * FROM products WHERE pro_ID='$id'");
         $query2=mysqli_fetch_array($result)
         ?>
 
-
         <form method="post" action="">
-        username:<input type="text" name="username" value="<?php echo $query2['username']; ?>" /><br />
-        email:<input type="email" name="email" value="<?php echo $query2['email']; ?>" /><br /><br />
-        <br />
+        Product ID:<input type="text" name="Product_ID" value="<?php echo $query2['pro_ID']; ?>" /><br />
+        Product name:<input type="text" name="Product_name" value="<?php echo $query2['product_name']; ?>" /><br />
+        Price:<input type="text" name="price" value="<?php echo $query2['price']; ?>" /><br />        <br />
+        Unit:<input type="text" name="unit" value="<?php echo $query2['unit']; ?>" /><br />
         <input type="submit" name="submit" value="update" />
         </form>
         <?php

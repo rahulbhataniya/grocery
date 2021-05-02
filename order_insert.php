@@ -67,26 +67,30 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !==true)
 	<center>
 		<h1>Storing Form data in Database</h1>
 
-		<form action="product_insert_save.php" method="post" style="padding:20px;background-color:white; width:400px;height:200px;">
+		<form action="order_insert_save.php" method="post" style="padding:20px;background-color:white; width:400px;height:200px;">
 			
 			<p>
 				<label for="firstName">product Name:</label>
-				<input type="text" name="product_name" id="firstName">
+				<input type="text" name="product_name" id="P_name">
 			</p>
 
 
 			
 			<p>
-				<label for="lastName">price:</label>
-				<input type="text" name="price" id="lastName">
+				<label for="Unit">unit:</label>
+				<input type="text" name="unit" id="P_unit">
 			</p>
 
-
-			
-			<p>
-				<label for="Gender">quantity:</label>
-				<input type="text" name="unit" id="Gender">
+            <p>
+				<label for="Username">Username:</label>
+				<input type="text" name="username" id="P_username">
 			</p>
+
+            <p>
+				<label for="Unit">Address</label>
+				<input type="text" name="Address" id="P_Address">
+			</p>
+
 			<input type="submit" value="Submit">
 		</form>
 	</center>

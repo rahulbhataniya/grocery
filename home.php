@@ -1,25 +1,21 @@
-
 <?php
-
 session_start();
-
-if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !==true)
-{
-    header("location: login.php");
-}
-
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-	<title>Insert New Product</title>
-	<link rel="stylesheet" type="text/css" href="css/style2.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style2.css">
+
+    <title>Grocery store</title>
 </head>
 
 <body>
-<header class="header">
+    <header class="header">
         <div class="branding">
             <h1>Rock</h1>
         </div>
@@ -39,7 +35,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !==true)
                 {
                     ?>
                     <li>
-                        <a href="#"> <img src="https://img.icons8.com/metro/26/000000/guest-male.png"></a>
+                        <a  href="#"> <img src="https://img.icons8.com/metro/26/000000/guest-male.png"></a>
                     </li>
                     <li>    
                         <a href="logout.php">Logout</a>
@@ -54,42 +50,27 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !==true)
                     <li>
                     <a href="register.php">Register</a>
                     </li>
-                <?php } ?>
-                
-                </li>
-                </ul>
-                </div>
-
-               
+                <?php }
+                 ?>
             </ul>
         </nav>
     </header>
-	<center>
-		<h1>Storing Form data in Database</h1>
+    <center>
+        <section class="image_list">
+            <ul>
+                <li>
+                    <a href="#"><img src="images/fruit.webp"></a>
+                </li>
+                <li>
+                    <a href="#"><img src="images/supermarket.webp"></a>
+                </li>
+                <li>
+                    <a href="#"><img src="images/cheese.webp"></a>
+                </li>
+            </ul>
 
-		<form action="product_insert_save.php" method="post" style="padding:20px;background-color:white; width:400px;height:200px;">
-			
-			<p>
-				<label for="firstName">product Name:</label>
-				<input type="text" name="product_name" id="firstName">
-			</p>
-
-
-			
-			<p>
-				<label for="lastName">price:</label>
-				<input type="text" name="price" id="lastName">
-			</p>
-
-
-			
-			<p>
-				<label for="Gender">quantity:</label>
-				<input type="text" name="unit" id="Gender">
-			</p>
-			<input type="submit" value="Submit">
-		</form>
-	</center>
+        </section>
+    </center>
 </body>
 
 </html>

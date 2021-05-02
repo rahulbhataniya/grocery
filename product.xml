@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="product_display.xsl"?>
+<!DOCTYPE product [
+<!ELEMENT product (ID,name,price,unit)>
+<!ELEMENT ID (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+<!ELEMENT unit (#PCDATA)>
+]>
+<product_list>
+    <product>
+        <ID>1</ID>
+        <name>Mi note 7</name>
+        <price>$905.95</price>
+        <unit>8</unit>
+    </product>
+    <product>
+        <ID>2</ID>
+        <name>Strawberry Belgian Waffles</name>
+        <price>$7.95</price>
+        <unit>20</unit>
+    </product>
+    <product>
+        <ID>3</ID>
+        <name>Book</name>
+        <price>$8.95</price>
+        <unit>5</unit>
+    </product>
+    <product>
+        <ID>4</ID>
+        <name>HP-LAPTOP</name>
+        <price>$4000.50</price>
+        <unit>7</unit>
+    </product>
+    <product>
+        <ID>5</ID>
+        <name>MANGO JUICE</name>
+        <price>$6.95</price>
+        <unit>10</unit>
+    </product>
+</product_list>

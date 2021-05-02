@@ -12,15 +12,16 @@
 		
 		// Taking all 5 values from the form data(input)
 		$product_name = $_REQUEST['product_name'];
-		$price = $_REQUEST['price'];
 		$unit = $_REQUEST['unit'];
+		$username = $_REQUEST['username'];
+        $address = $_REQUEST['Address'];
 		// Performing insert query execution
 		// here our table name is college
-		$sql = "INSERT INTO products(product_name,unit,price) VALUES ('$product_name','$unit','$price')";
+		$sql = "INSERT INTO orders(product_name,unit,username,addr) VALUES ('$product_name','$unit','$username','$address')";
 		
 		if(mysqli_query($conn, $sql))
         {
-			header('location:products.php');
+			header('location:orders.php');
 			echo "<h3>data stored in a database successfully";
 		} 
         else

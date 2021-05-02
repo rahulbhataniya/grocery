@@ -1,11 +1,12 @@
 <?php
 //This script will handle login
 session_start();
+$_SESSION["loggedin"] = true;
 
 // check if the user is already logged in
 if(isset($_SESSION['email']))
 {
-    header("location: welcome.php");
+    header("location: home.html");
     exit;
 }
 require_once "config.php";
@@ -14,7 +15,8 @@ $email = $password = "";
 $err = "";
 
 // if request method is post
-if ($_SERVER['REQUEST_METHOD'] == "POST"){
+if ($_SERVER['REQUEST_METHOD'] == "POST")
+{
     if(empty(trim($_POST['email'])) || empty(trim($_POST['password'])))
     {
         $err = "Please enter email + password";
@@ -50,7 +52,7 @@ if(empty($err))
                             $_SESSION["loggedin"] = true;
 
                             //Redirect user to welcome page
-                            header("location: welcome.php");
+                            header("location: home.php");
                             
                         }
                     }
@@ -75,36 +77,51 @@ if(empty($err))
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style2.css">
 
     <title>PHP login system!</title>
   </head>
   <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Php Login System</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-  <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="register.php">Register</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="login.php">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="logout.php">Logout</a>
-      </li>
-
-      
-     
-    </ul>
-  </div>
-</nav>
-
+  <header class="header">
+        <div class="branding">
+            <h1>Rock</h1>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="home.php">home</a>
+                </li>
+                <li>
+                    <a href="orders.php">orders</a>
+                </li>
+                <li>
+                    <a href="products.php">products</a>
+                </li>
+                
+                <?php if( isset($_SESSION['email']) && !empty($_SESSION['email']) )
+                {
+                    ?>
+                    <li>
+                        <a class="nav-link" href="#"> <img src="https://img.icons8.com/metro/26/000000/guest-male.png"></a>
+                    </li>
+                    <li>    
+                        <a href="logout.php">Logout</a>
+                    </li>
+                    <?php 
+                }
+                else
+                { ?>
+                  <li>
+                    <a href="login.php">Login</a>
+                    </li>
+                    <li>
+                    <a href="register.php">Register</a>
+                    </li>
+                <?php }
+                 ?>
+            </ul>
+        </nav>
+    </header>
 <div class="container mt-4">
 <h3>Please Login Here:</h3>
 <hr>
